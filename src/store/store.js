@@ -1,25 +1,10 @@
 import { createStore } from 'redux';
-import { initialState } from './initialState';
 import { devToolsEnhancer } from '@redux-devtools/extension';
-// import { contactReducer } from './reducer';
-// import { combineReducers } from 'redux';
-
+import { contactReducer } from './reducer';
 
 
 const enhancer = devToolsEnhancer();
+export const store = createStore(contactReducer, enhancer);
 
 
-const rootReducer = (state = initialState, action) => {  
- return state;
- 
- };
-
-
-export const store = createStore(rootReducer, enhancer);
-//  console.log('store', store);
-
-// export const reducer = combineReducers({
-//   contacts: contactReducer,
-//   //   user: userreducer,
-// });
 

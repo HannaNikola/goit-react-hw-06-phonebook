@@ -1,18 +1,17 @@
+import { useDispatch, useSelector } from "react-redux";
 import { Title, InputFilter, DivBox } from "./Filter.styled"
-// import { useState } from "react";
+import { filterAction } from "store/action";
 
 
-// const [filter, setFilter] = useState('')
-// const handleFilterChange = event => {
-//     setFilter(event.target.value.toLowerCase());
+export const FilterName = () => {
+    const dispatch = useDispatch();
+    const filter = useSelector((state) => state.filter);
 
-// }
-// const filteredContacts = contacts.filter(contact =>
-//   contact.name.toLowerCase().includes(filter)
-// );
+    const handleFilterChange = (event) => {
+        const filterValue = event.target.value.toLowerCase();
+        dispatch(filterAction(filterValue));
+    };
 
-
-export const Filter = ({ filter, onFilterChange }) => {
     return (
         <DivBox>
             <Title>Find contacts by Name</Title>
@@ -21,10 +20,16 @@ export const Filter = ({ filter, onFilterChange }) => {
                 type="text"
                 id="filter"
                 value={filter}
-                onChange={onFilterChange}
+                onChange={handleFilterChange}
             />
         </DivBox>
     )
 
 
 }
+
+
+
+
+
+
