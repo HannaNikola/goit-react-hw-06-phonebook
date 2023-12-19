@@ -6,10 +6,18 @@ import { filterAction } from "store/action";
 export const FilterName = () => {
     const dispatch = useDispatch();
     const filter = useSelector((state) => state.filter);
+    // const contacts = useSelector((state)=> state.contacts)
+
+    
 
     const handleFilterChange = (event) => {
         const filterValue = event.target.value.toLowerCase();
+        
         dispatch(filterAction(filterValue));
+
+        // const filteredContacts = contacts.filter((contact) =>
+        //     contact.name.toLowerCase().includes(filter.toLowerCase())
+        // );
     };
 
     return (
@@ -30,6 +38,6 @@ export const FilterName = () => {
 
 
 
-
-
-
+// const filteredContacts = contacts.filter(contact =>
+//     contact.name.toLowerCase().includes(filter.toLowerCase())
+// );
