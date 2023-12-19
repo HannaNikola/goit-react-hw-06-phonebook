@@ -19,15 +19,13 @@ export const contactReducer = (state =initialState, action) => {
         };
       case FILTER_CONTACT:
        return {
-         ...state,
-         filter: action.payload,
+          ...state,
+          filter: action.payload,
        };
       default:
         return state;
     };
 
 };
-
-
 
 
