@@ -5,7 +5,8 @@ import * as Yup from 'yup';
 import { StyleForm, ButtonAdd, StyleError, InputStyle, Box } from './ContactForm.styled';
 import { nanoid } from 'nanoid';
 import { useDispatch, useSelector } from 'react-redux';
-import { addContact } from 'store/action';
+// import { addContactAction} from 'store/action';
+import { ADD_CONTACT } from 'store/reducer'
 
 const phonebookSchema = Yup.object().shape({
     name: Yup.string().min(3, 'Too short!').required('This field is required'),
@@ -32,7 +33,7 @@ export const ContactForm = () => {
       }
 
         const contactWithId = { ...newContact, id: generateId() };
-        dispatch(addContact(contactWithId));
+        dispatch(ADD_CONTACT(contactWithId));
     
     }
 

@@ -1,6 +1,7 @@
 import { useDispatch, useSelector } from "react-redux";
 import { Title, InputFilter, DivBox } from "./Filter.styled"
-import { filterAction } from "store/action";
+// import { filterAction } from "store/action";
+import { FILTER_CONTACT } from "store/reducer";
 
 
 export const FilterName = () => {
@@ -11,7 +12,7 @@ export const FilterName = () => {
             const filterValue = event.target.value.toLowerCase();
             
         
-        dispatch(filterAction(filterValue));
+            dispatch(FILTER_CONTACT(filterValue));
 
     };
 

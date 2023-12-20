@@ -1,6 +1,6 @@
 import { useSelector } from "react-redux";
 import { useDispatch } from "react-redux";
-import { deleteContactAction } from "store/action";
+import { DELETE_CONTACT } from "store/reducer";
 import { List, ListItem, ButtonDelete } from "./ContactList.styled";
 
 
@@ -11,13 +11,14 @@ export const ContactList = () => {
   const dispatch = useDispatch();
 
   const deleteContact = (id) => {
-    dispatch(deleteContactAction(id));
+    dispatch(DELETE_CONTACT(id));
   };
   const filteredContacts = contacts.filter(contact =>
+    
     contact.name.toLowerCase().includes(filter.toLowerCase())
     
   )
- 
+  
   return (
     <List>
       {filteredContacts.map((contact) => (
