@@ -6,7 +6,7 @@ import { FILTER_CONTACT } from "store/reducer";
 
 export const FilterName = () => {
     const dispatch = useDispatch();
-    const filter = useSelector((state) => state.filter);
+    const filter = useSelector((state) => state.filter.filter);
     
         const handleFilterChange = (event) => {
             const filterValue = event.target.value.toLowerCase();

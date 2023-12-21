@@ -17,7 +17,7 @@ const phonebookSchema = Yup.object().shape({
 
 export const ContactForm = () => {
     const dispatch = useDispatch();
-    const contacts = useSelector(state => state.contacts);
+    const contacts = useSelector(state => state.contacts.contacts);
     
 
     const generateId = () => {
