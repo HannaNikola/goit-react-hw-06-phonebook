@@ -6,7 +6,7 @@ import { StyleForm, ButtonAdd, StyleError, InputStyle, Box } from './ContactForm
 import { nanoid } from 'nanoid';
 import { useDispatch, useSelector } from 'react-redux';
 // import { addContactAction} from 'store/action';
-import { ADD_CONTACT } from 'store/reducer'
+import { ADD_CONTACT } from 'store/reducerContactSlice'
 
 const phonebookSchema = Yup.object().shape({
     name: Yup.string().min(3, 'Too short!').required('This field is required'),
@@ -17,29 +17,29 @@ const phonebookSchema = Yup.object().shape({
 
 export const ContactForm = () => {
     const dispatch = useDispatch();
-    const contacts = useSelector(state => state.contacts.contacts);
-    
+    const contacts = useSelector(state => state.contact.contacts);
+
 
     const generateId = () => {
         return nanoid();
     };
 
     const addContactHandle = (newContact) => {
-      const name = newContact.name;
+        const name = newContact.name;
 
-      if (contacts.some(contact => contact.name.toLowerCase() === name.toLowerCase())) {
-        alert(`${name} :you have this number in your Phone Book.`);
-        return;
-      }
+        if (contacts.some(contact => contact.name.toLowerCase() === name.toLowerCase())) {
+            alert(`${name} :you have this number in your Phone Book.`);
+            return;
+        }
 
         const contactWithId = { ...newContact, id: generateId() };
         dispatch(ADD_CONTACT(contactWithId));
-    
+
     }
 
-   
 
-    
+
+
 
     return (
         <Box>
@@ -52,7 +52,7 @@ export const ContactForm = () => {
                 validationSchema={phonebookSchema}
                 onSubmit={(values, actions) => {
 
-                    addContactHandle(values); 
+                    addContactHandle(values);
                     actions.resetForm();
                 }}
 

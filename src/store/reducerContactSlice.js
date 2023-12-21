@@ -1,40 +1,13 @@
 
-
-// import { initialState } from "./initialState";
 import {createSlice } from "@reduxjs/toolkit";
-// import { ADD_CONTACT, DELETE_CONTACT, FILTER_CONTACT } from './types';
-
-
-
-// export const contactReducer = createReducer(initialState, builder =>
-//   builder
-//     .addCase(ADD_CONTACT, (state, action) => {
-//       return {
-//         ...state,
-//         contacts: [...state.contacts, action.payload],
-//       };
-//     })
-//     .addCase(DELETE_CONTACT, (state, action) => {
-//       return {
-//         ...state,
-//         contacts: state.contacts.filter(
-//           contact => contact.id !== action.payload
-//         ),
-//       };
-//     })
-//     .addCase(FILTER_CONTACT, (state, action) => {
-//       return {
-//         ...state,
-//         filter: action.payload,
-//       };
-//     })
-// );
 
 
 
 export const contactSlise = createSlice({
   name: 'contact',
-  initialState: {
+  initialState : {
+    
+
     contacts: [
       { id: 'id-1', name: 'Rosie Simpson', number: '459-12-56' },
       { id: 'id-2', name: 'Hermione Kline', number: '443-89-12' },
@@ -43,22 +16,21 @@ export const contactSlise = createSlice({
     ],
   },
   reducers: {
-
     ADD_CONTACT(state, action) {
       return {
         ...state,
         contacts: [...state.contacts, action.payload],
-      }
+      };
     },
     DELETE_CONTACT(state, action) {
       return {
-       
-          ...state,
-          contacts: state.contacts.filter(contact => contact.id !== action.payload),
-        }
-      }
-    
-  }
+        ...state,
+        contacts: state.contacts.filter(
+          contact => contact.id !== action.payload
+        ),
+      };
+    },
+  },
 });
 
 
@@ -68,28 +40,6 @@ export const contactSlise = createSlice({
 
 export const contactReduce = contactSlise.reducer;
 export const { ADD_CONTACT, DELETE_CONTACT } = contactSlise.actions;
-
-
-
-
-export const filterSlice = createSlice({
-  name: 'filter',
-  initialState: {
-    filter: '',
-  },
-
-  reducers: {
-    FILTER_CONTACT(state, action) {
-      return {
-        ...state,
-        filter: action.payload,
-      };
-    },
-  },
-})
-
-export const filterReduce = filterSlice.reducer;
-export const { FILTER_CONTACT } = filterSlice.actions;
 
 
 

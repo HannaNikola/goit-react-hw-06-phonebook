@@ -1,12 +1,12 @@
 import { useSelector } from "react-redux";
 import { useDispatch } from "react-redux";
-import { DELETE_CONTACT } from "store/reducer";
+import { DELETE_CONTACT } from "store/reducerContactSlice";
 import { List, ListItem, ButtonDelete } from "./ContactList.styled";
 
 
 
 export const ContactList = () => {
-  const contacts = useSelector((state) => state.contacts.contacts);
+  const contacts = useSelector((state) => state.contact.contacts);
   const filter = useSelector((state) => state.filter.filter);
   const dispatch = useDispatch();
 
@@ -14,11 +14,11 @@ export const ContactList = () => {
     dispatch(DELETE_CONTACT(id));
   };
   const filteredContacts = contacts.filter(contact =>
-    
+
     contact.name.toLowerCase().includes(filter.toLowerCase())
-    
+
   )
-  
+
   return (
     <List>
       {filteredContacts.map((contact) => (
@@ -30,7 +30,7 @@ export const ContactList = () => {
     </List>
   );
 };
- 
+
 
 
 
