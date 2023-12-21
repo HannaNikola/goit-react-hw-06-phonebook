@@ -5,8 +5,7 @@ import * as Yup from 'yup';
 import { StyleForm, ButtonAdd, StyleError, InputStyle, Box } from './ContactForm.styled';
 import { nanoid } from 'nanoid';
 import { useDispatch, useSelector } from 'react-redux';
-// import { addContactAction} from 'store/action';
-import { ADD_CONTACT } from 'store/reducerContactSlice'
+import { ADD_CONTACT } from 'store/reducerContactSlice';
 
 const phonebookSchema = Yup.object().shape({
     name: Yup.string().min(3, 'Too short!').required('This field is required'),

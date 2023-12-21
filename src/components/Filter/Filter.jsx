@@ -1,6 +1,5 @@
 import { useDispatch, useSelector } from "react-redux";
 import { Title, InputFilter, DivBox } from "./Filter.styled"
-// import { filterAction } from "store/action";
 import { FILTER_CONTACT } from "store/reducerFilterSlice";
 
 
